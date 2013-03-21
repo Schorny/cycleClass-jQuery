@@ -92,3 +92,25 @@ test("roundtrip backward", function() {
     ok(testClasses($elem, ["three"], ["one", "two"]), "third step");
     ok(expectRoundtrip===false, "roundtrip not done");
 });
+
+test("add missing class on forward step", function() {
+    var $elem=$("<div class=''></div>");
+    var classList=["one", "two", "three"];
+
+    ok(testClasses($elem, [], ["one", "two", "three"]), "setup");
+    $elem.cycleClass(classList);
+    ok(testClasses($elem, ["one"], ["two", "three"]), "first step");
+});
+
+test("add missing class on backward step", function() {
+    var $elem=$("<div class=''></div>");
+    var classList=["one", "two", "three"];
+
+    var config={
+        backwards: true
+    };
+
+    ok(testClasses($elem, [], ["one", "two", "three"]), "setup");
+    $elem.cycleClass(classList, config);
+    ok(testClasses($elem, ["three"], ["one", "two"]), "first step");
+});
