@@ -8,6 +8,7 @@
  * http://opensource.org/licenses/MIT
  */
 (function($) {
+    //TODO: think about "use strict" - jQuery does not use it because of compatibility problems...
 
     //sanitize this.className to allow for a faster hasClass
     //we replace \t\r\n with a normal blank, so we can use indexOf for classname lookup
@@ -25,13 +26,13 @@
     //http://www.scottlogic.co.uk/2010/10/javascript-array-performance/
     //says [] assign is faster than .push
     var arrayReverseCopy = function(array) {
-        var result=[]
+        var result=[];
         var length=array.length;
         for(var i=length-1; i>=0; --i) {
             result[length-i-1]=array[i];
         }
         return result;
-    }
+    };
 
     /**
      * Cycles through a list of classes
@@ -44,7 +45,7 @@
      */
     $.fn.cycleClass = function(classList, options) {
         options = options || {};
-        if(options["backwards"]) {
+        if(options.backwards) {
             classList = arrayReverseCopy(classList);
         }
         //TODO: test if its faster to sanitize classList
@@ -53,7 +54,7 @@
 
         return this.each(function() {
             //abort if this is not an ELEMENT_NODE
-            if(this.nodeType != 1) return;
+            if(this.nodeType !== 1) return;
             var className = sanitizeClassName(this.className);
 
             //start with -1 so the next element is always pos+1
@@ -79,9 +80,9 @@
             //commit classname changes
             this.className = $.trim(className);
 
-            if(options["onRoundTrip"]) {
+            if(options.onRoundTrip) {
                 if(pos===classCount-1) {
-                    options["onRoundTrip"](this);
+                    options.onRoundTrip(this);
                 }
             }
         });
