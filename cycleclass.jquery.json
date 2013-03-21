@@ -1,6 +1,7 @@
 {
     "name": "cycleclass",
     "title": "cycleClass - jQuery css-class cycling",
+    "description": "A small plugin that allows you to cycle throug css class, kind of like toggleClass on steroids.",
     "keywords": [
         "toggle",
         "cycle"
