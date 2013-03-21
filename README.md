@@ -21,7 +21,9 @@ As second parameter cycleClass takes a config options with 2 possible options:
 Project Structure
 =================
 All you need is `cycleclass.jquery.js`. It does not use much jQuery, therefore should work with any jQuery version. Only newest jQuery is supported though (tests are ran against newest jQuery).
+
 In the directory `demo` you'll find a simple demo how it works. It's currently in german though.
+
 In the directory `tests` you'll find all QUnit tests for cycleClass in the file `tests.js`.
 
 Pretty simple, isn't it? ;)
