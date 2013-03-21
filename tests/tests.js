@@ -114,3 +114,18 @@ test("add missing class on backward step", function() {
     $elem.cycleClass(classList, config);
     ok(testClasses($elem, ["three"], ["one", "two"]), "first step");
 });
+
+test("correct roundtrip parameter", function() {
+    expect(1);
+    var $elem=$("<div class='one' data-foo='bar'></div>");
+    var classList=["one", "two", "three"];
+    var config={
+        onRoundTrip: function(e) {
+            ok($(e).data("foo")==="bar", "round trip");
+        }
+    };
+
+    $elem.cycleClass(classList, config);
+    $elem.cycleClass(classList, config);
+    $elem.cycleClass(classList, config);
+});
