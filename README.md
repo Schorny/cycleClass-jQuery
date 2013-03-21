@@ -18,3 +18,10 @@ As second parameter cycleClass takes a config options with 2 possible options:
 * backwards - a boolean. Default false. If true, the cycling is done backwards. Beware that it is much faster to use a pre-reversed array to cycle backwards than to let cycleClass reverse the array on each call
 * onRoundTrip - a callback function taking the current element as only parameter. This callback is called everytime a round trip happens.
 
+Project Structure
+=================
+All you need is `cycleclass.jquery.js`. It does not use much jQuery, therefore should work with any jQuery version. Only newest jQuery is supported though (tests are ran against newest jQuery).
+In the directory `demo` you'll find a simple demo how it works. It's currently in german though.
+In the directory `tests` you'll find all QUnit tests for cycleClass in the file `tests.js`.
+
+Pretty simple, isn't it? ;)
