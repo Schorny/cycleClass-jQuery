@@ -1,7 +1,7 @@
 {
     "name": "cycleclass",
     "title": "cycleClass - jQuery css-class cycling",
-    "description": "A small plugin that allows you to cycle throug css class, kind of like toggleClass on steroids.",
+    "description": "A small plugin that allows you to cycle through css classes, kind of like toggleClass on steroids.",
     "keywords": [
         "toggle",
         "cycle"
@@ -12,7 +12,7 @@
             "url": "http://opensource.org/licenses/MIT"
         }
     ],
-    "version": "1.0.1",
+    "version": "1.0.2",
     "author": {
         "name": "Toni Schornboeck",
         "email": "toni.schornboeck@gmail.com"
