@@ -1,6 +1,6 @@
 /*!
  * cycleClass jQuery Plugin
- * https://github.com/Schorny/cycleClass.jQuery
+ * https://github.com/Schorny/cycleClass-jQuery
  *
  * Copyright 2013, Toni Schornboeck <toni.schornboeck@gmail.com>
  *
