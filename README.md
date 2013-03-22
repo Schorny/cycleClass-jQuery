@@ -14,7 +14,7 @@ Configuration
 =================
 cycleClass takes an array of classnames as first parameter. If none of the supplied classnames are set, the first one is set.
 
-As second parameter cycleClass takes a config options with 4 possible options:
+As second parameter cycleClass takes a config object with 4 possible options:
 * backwards - a boolean. Default false. If true, the cycling is done backwards. Beware that it is much faster to use a pre-reversed array to cycle backwards than to let cycleClass reverse the array on each call
 * onRoundTrip - a callback function taking the current element as only parameter. This callback is called everytime a round trip happens.
 * transition - a callback function taking the current element, the old classname and the new classname as 3 parameters. this callback is responsible for changing the classes on the element and allows for transition effects to take place.
