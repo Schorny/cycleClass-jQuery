@@ -40,7 +40,9 @@
      * @param {Array} classList array of classnames
      * @param {Object} [options] options object
      * @config {Boolean} [backwards] set to true if you want to cycle backwards
+     * @config {Integer} [toIndex] doesn't cycle to the next class, but cycles to the toIndex class in the classList
      * @config {Function} [onRoundTrip] callback function if a round trip happens, receives the element as only argument
+     * @config {Function} [transition] callback function, called with 3 arguments (this element, old class, new class) which is responsible for the transition between the classes (cycleClass won't change classes if transition is set, this is tranisition's responsibility)
      * @return this
      */
     $.fn.cycleClass = function(classList, options) {
@@ -67,18 +69,30 @@
             }
 
             //only remove class if a class was found
+            var cur="";
             if(pos!==-1) {
-                var cur = classList[pos];
+                cur = classList[pos];
                 className=className.replace(" "+cur+" ", " ");
             }
 
             //get next element, beware of round trips
-            var next = classList[(pos+1)%classCount];
+            var next="";
+            if(options.toIndex === undefined) {
+                next = classList[(pos+1)%classCount];
+            } else {
+                next = classList[options.toIndex];
+            }
+
             //be tricky and put next as first classname for faster retrieval next time
             className=next+" "+className;
 
             //commit classname changes
-            this.className = $.trim(className);
+            //if transition, then classname change is done by transition function
+            if(options.transition) {
+                options.transition(this, cur, next);
+            } else {
+                this.className = $.trim(className);
+            }
 
             if(options.onRoundTrip) {
                 if(pos===classCount-1) {
