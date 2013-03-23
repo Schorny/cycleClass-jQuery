@@ -193,3 +193,15 @@ test("jump to index", function() {
     $elem.cycleClass(classList, config);
     ok(testClasses($elem, ["three"], ["one", "two"]), "first step");
 });
+
+test("jump to negative index", function() {
+    var $elem=$("<div class='three'></div>");
+    var classList=["one", "two", "three"];
+    var config={
+        toIndex: -3
+    };
+
+    ok(testClasses($elem, ["three"], ["one", "two"]), "setup");
+    $elem.cycleClass(classList, config);
+    ok(testClasses($elem, ["one"], ["tow", "three"]), "first step");
+});

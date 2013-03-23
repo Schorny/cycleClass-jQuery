@@ -40,19 +40,22 @@
      * @param {Array} classList array of classnames
      * @param {Object} [options] options object
      * @config {Boolean} [backwards] set to true if you want to cycle backwards
-     * @config {Integer} [toIndex] doesn't cycle to the next class, but cycles to the toIndex class in the classList
+     * @config {Integer} [toIndex] doesn't cycle to the next class, but cycles to the toIndex class in the classList.
      * @config {Function} [onRoundTrip] callback function if a round trip happens, receives the element as only argument
      * @config {Function} [transition] callback function, called with 3 arguments (this element, old class, new class) which is responsible for the transition between the classes (cycleClass won't change classes if transition is set, this is tranisition's responsibility)
      * @return this
      */
     $.fn.cycleClass = function(classList, options) {
+        var classCount = classList.length;
         options = options || {};
         if(options.backwards) {
             classList = arrayReverseCopy(classList);
         }
+        if(options.toIndex < 0) {
+            options.toIndex += classCount;
+        }
         //TODO: test if its faster to sanitize classList
 
-        var classCount = classList.length;
 
         return this.each(function() {
             //abort if this is not an ELEMENT_NODE

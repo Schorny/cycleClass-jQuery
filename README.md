@@ -18,7 +18,7 @@ As second parameter cycleClass takes a config object with 4 possible options:
 * backwards - a boolean. Default false. If true, the cycling is done backwards. Beware that it is much faster to use a pre-reversed array to cycle backwards than to let cycleClass reverse the array on each call
 * onRoundTrip - a callback function taking the current element as only parameter. This callback is called everytime a round trip happens.
 * transition - a callback function taking the current element, the old classname and the new classname as 3 parameters. this callback is responsible for changing the classes on the element and allows for transition effects to take place.
-* toIndex - an integer. If toIndex is set, cycleClass does not cycle to the next class in the classList, but instead cycles to the class with the index toIndex.
+* toIndex - an integer. If toIndex is set, cycleClass does not cycle to the next class in the classList, but instead cycles to the class with the index toIndex. If toIndex is negative, the index is taken from the back.
 
 Note: onRoundTrip is called after transition.
 
